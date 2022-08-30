@@ -3,7 +3,8 @@ const menu = new Vue({
     data: {
         nombre: 'No logueado',
         logueado: false,
-        id_rol: 0
+        id_rol: 0,
+        menus: []
     },
     methods:{
         login: function(id_rol){
@@ -13,15 +14,46 @@ const menu = new Vue({
                 this.nombre = 'Usuario';
                 this.id_rol = 1;
                 this.logueado = true;
+                this.menus = [
+                    {
+                        nombre: 'Incio',
+                        url: 'index.html'
+                    },
+                    {
+                        nombre: 'perfil',
+                        url: 'perfil.html'
+                    }
+                ]
+
             } else {
                 this.nombre = 'Administrador';
                 this.id_rol = 2;
                 this.logueado = true;
+                this.menus = [
+                    {
+                        nombre: 'Incio',
+                        url: 'index.html'
+                    },
+                    {
+                        nombre: 'perfil',
+                        url: 'perfil.html'
+                    },
+                    {
+                        nombre: 'Administrar',
+                        url: 'admin.html'
+                    }
+                ]
             }
         },
         salir: function(){
             this.nombre = 'No logueado';
             this.logueado = false;
+            this.menus = [];
         }
     }
 })
+
+/* 
+for (const item in array) {
+
+} */
