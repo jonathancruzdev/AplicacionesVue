@@ -3,7 +3,8 @@ const app = new Vue({
     data: {
         email: '',
         pass: '',
-        error: false
+        error: false,
+        lenguajes: ['HTML', 'CSS', 'JavaScript', 'PHP']
     },
     methods: {
         login: function(){

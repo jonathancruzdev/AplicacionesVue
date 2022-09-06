@@ -39,6 +39,15 @@
             <div class="col-md-4"></div>
 
         </div>
+
+        <div class="row">
+            <ul class="list-group p-4">
+                <li v-for="(lenguaje, index) in lenguajes" v-bind:key="index" class="list-group-item">
+                    <span v-text="index" class="badge bg-primary rounded-pill">
+                    </span> <span v-text="lenguaje"></span>
+                </li>
+            </ul>
+        </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="app.js"></script>
