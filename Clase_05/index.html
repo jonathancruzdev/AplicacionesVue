@@ -13,22 +13,23 @@
     </header>
     <main id="app">
         <div class="row">
+            
             <div class="col-md-2"></div>
             <div class="col-md-4">
                 <h2 class="text-success text-center">Computadas</h2>
-                <form action="" class="card p-3">
-                    <input type="text" class="form-control">
-                    <button class="btn btn-success col-md-12 mt-3" type="submit">Agregar</button>
+                <form v-on:submit.prevent="addTask" action="" class="card p-3">
+                    <input v-model="taskName" type="text" class="form-control">
+                    <button  class="btn btn-success col-md-12 mt-3" type="submit">Agregar</button>
                 </form>
-
+                <p>Cantidad de tarea <span v-text="tasksCount"></span> </p>
             </div>
             <div class="col-md-4">
                 <h2 class="text-success text-center">Tareas</h2>
                 <div class="card">
                     <ul class="list-group p-4">
-                        <li  class="list-group-item">
-                            <span v-text="index" class="badge bg-primary rounded-pill"></span>
-                            <span></span>
+                        <li v-for="(task, index) in tasks" class="list-group-item">
+                            <span v-text="index + 1" class="badge bg-primary rounded-pill"></span>
+                            <span v-text="task.name"></span>
                         </li>
                     </ul>
                 </div>
