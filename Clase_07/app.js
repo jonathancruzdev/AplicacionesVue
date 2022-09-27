@@ -3,27 +3,55 @@ const app = new Vue({
     data: {
         palabraFiltro: '',
         producto: '',
-        lista: ['Coca cola', 'alfajor', 'galletita', 'jugo']
+        precio: '',
+        lista: [{nombre: 'jugo', precio: 50}]
+    },
+    created(){
+        this.leerLista();
     },
     computed: {
         cantidadProducto(){
             return this.lista.length
         },
         productosFiltrados(){
-            let array =  this.lista.filter( item => item.toLowerCase().includes(this.palabraFiltro.toLowerCase() )  )
+            let array =  this.lista.filter( item => item.nombre.toLowerCase().includes(this.palabraFiltro.toLowerCase() )  )
             console.log(array);
             return array;
+        },
+        todoCarrito(){
+            let total = 0;
+            this.lista.forEach(element => {
+                total += element.precio
+            });
+
+            return total;
         }
     },
     methods:{
         agregar: function(){
             if( this.producto.trim() != ''){
-                this.lista.push( this.producto );
+                this.lista.push({
+                    nombre: this.producto,
+                    precio: this.precio
+                });
                 this.producto = '';
+                this.precio = '';
             }
+            this.guardarLista();
         },
         borrarTodo: function(){
             this.lista = [];
+            this.guardarLista()
+        },
+        leerLista: function(){
+            let datosStorage = JSON.parse( localStorage.getItem('lista'));
+            if(  datosStorage  ){
+                this.lista =  datosStorage;
+            }
+        },
+
+        guardarLista: function(){
+            localStorage.setItem( 'lista', JSON.stringify(this.lista) );
         }
     }
 })

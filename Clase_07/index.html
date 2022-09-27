@@ -26,7 +26,9 @@
             <div class="col-md-4">
                 <div class="card p-4">
                     <label for="">Comprar</label>
-                    <input v-model="producto" class="form-control mt-2" type="text">
+                    <input v-model="producto" class="form-control mt-2" type="text" placeholder="Remera">
+                    <input v-model.number="precio" class="form-control mt-2" type="number" placeholder="$100">
+
                     <button v-on:click="agregar()" class="btn btn-outline-success mt-4" type="button"><i class="fa-solid fa-cart-plus"></i> Agregar</button>
                     <button v-on:click="borrarTodo()" class="btn btn-outline-danger mt-2" type="button" ><i class="fa-solid fa-trash-can"></i> Vaciar</button>
                 </div>
@@ -37,9 +39,17 @@
                     <h2 class="text-center text-info">Lista</h2>
                     <input v-model="palabraFiltro" class="form-control" type="text">
                     <ul>
-                        <li v-for=" item in productosFiltrados" >{{item}}</li>
+                        <li v-for=" item in productosFiltrados" class="d-flex justify-content-between" >
+                            <span v-text="item.nombre"></span>
+                            <span>$<span v-text="item.precio"></span></span>
+                            
+                        </li>
                     </ul>
-                    <p class="text-primary" v-text="cantidadProducto"></p>
+                    <div class="card-footer d-flex justify-content-between">
+                        <p class="text-primary"><i class="fa-solid fa-cart-shopping"></i> <span v-text="cantidadProducto"></span></p>
+                        <p class="text-primary"><i class="fa-solid fa-dollar-sign"></i><span v-text="todoCarrito"></span> </p>
+                    </div>
+
                 </div>
 
             </div>
