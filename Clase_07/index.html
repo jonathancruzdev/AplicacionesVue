@@ -33,10 +33,13 @@
             </div>
             <div class="col-md-4">
                 <div class="card p-4">
+
                     <h2 class="text-center text-info">Lista</h2>
+                    <input v-model="palabraFiltro" class="form-control" type="text">
                     <ul>
-                        <li v-for=" item in lista" >{{item}}</li>
+                        <li v-for=" item in productosFiltrados" >{{item}}</li>
                     </ul>
+                    <p class="text-primary" v-text="cantidadProducto"></p>
                 </div>
 
             </div>
