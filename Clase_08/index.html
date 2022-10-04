@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renderizado de listas (V-FOR) y Computadas</title>
+    <title>Clase 08 - Componetes</title>
     <link rel="shortcut icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../libs/bootstrap.min.css">
@@ -12,9 +12,17 @@
 </head>
 <body>
     <header class="bg-success">
-        <h1 class="text-center text-light">Componetes</h1>
+        <h1 class="text-center text-light">Clase 08 - Componetes</h1>
     </header>
     <main id="app" class="container">
+        <caja></caja>
+
+        <h2>Productos</h2>
+        <card v-for="(producto, index) in lista"  
+                v-bind:nombre="producto.nombre"
+                v-bind:foto="producto.foto"
+                v-bind:precio="producto.precio"
+        ></card>
 
     </main>
     <footer class="bg-primary text-light">
@@ -22,6 +30,7 @@
     </footer>
 
     <script src="../libs/vue.js"></script>
+    <script src="components/card.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
