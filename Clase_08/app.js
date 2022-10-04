@@ -32,6 +32,14 @@ const app = new Vue({
         ]
     },
     methods: {
-
+        leer: function(){
+            this.lista = localStorage.getItem('productos');
+        },
+        guardar: function(){
+            localStorage.setItem('productos', JSON.parse(this.lista) );
+        },
+        nuevo: function(){
+            console.log('Abrir nueva');
+        }
     }
 })
