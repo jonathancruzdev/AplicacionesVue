@@ -19,10 +19,15 @@
             <ul>
                 <task v-for="(tarea, index) in tareas"
                       v-bind:nombre="tarea.nombre"
-                      v-bind:estado="tarea.estado">
+                      v-bind:estado="tarea.estado"
+                      v-bind:key="index"
+                      v-on:cambio="cambiarEstado(tarea)">
                 </task>
             </ul>
-    
+            
+            <pre>
+                {{$data}}
+            </pre>
         </main>
         <pie descripcion="Aplicaciones para Dispositivos Móviles"></pie>
     

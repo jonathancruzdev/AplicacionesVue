@@ -17,6 +17,10 @@ const app = new Vue({
         ]
     },
     methods:{
+        cambiarEstado:function(tarea){
+            tarea.estado = !tarea.estado;
+            console.log(tarea);
 
+        }
     }
 })
