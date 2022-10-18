@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 10 - Componetes</title>
+    <link rel="shortcut icon" href="img/componente.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <encabezado titulo="Clase 10 - Componetes Comunicación"></encabezado>
+        <main  class="container">
+            <h2 class="text-center mt-2">Todo Do</h2>
+
+            <ul>
+                <task v-for="(tarea, index) in tareas"
+                      v-bind:nombre="tarea.nombre"
+                      v-bind:estado="tarea.estado">
+                </task>
+            </ul>
+    
+        </main>
+        <pie descripcion="Aplicaciones para Dispositivos Móviles"></pie>
+    
+    </div>
+   
+    <script src="../libs/vue.js"></script>
+    <script src="components/encabezado.js"></script>
+    <script src="components/pie.js"></script>
+    <script src="components/task.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
